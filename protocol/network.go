@@ -59,11 +59,6 @@ func (kv *KeyValue) Marshal() string {
 	case int:
 		valuestr = strconv.Itoa(t)
 	}
-	s := url.QueryEscape(valuestr)
-	s = strings.Replace(s, "%2F", "%2f", -1)
-	s = strings.Replace(s, "%2B", "%2b", -1)
-	s = strings.Replace(s, "%3D", "%3d", -1)
-	s = strings.Replace(s, "%2D", "%2d", -1)
 	return fmt.Sprintf("%s=%s", kv.Key, url.QueryEscape(valuestr))
 }
 
